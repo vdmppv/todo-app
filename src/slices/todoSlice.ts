@@ -40,7 +40,7 @@ const todoSlice = createSlice({
     removeTodo: (state, action: PayloadAction<number[]>) => {
       state.todos = state.todos.filter(todo => !action.payload.includes(todo.id));
     },
-    editTodo: (state, action: PayloadAction<Todo>) => {
+    updateTodo: (state, action: PayloadAction<Todo>) => {
       const { id, description, date } = action.payload;
       const existingTodo = state.todos.find(todo => todo.id === id);
       if (existingTodo) {
@@ -51,5 +51,5 @@ const todoSlice = createSlice({
   },
 });
 
-export const { addTodo, removeTodo, editTodo } = todoSlice.actions;
+export const { addTodo, removeTodo, updateTodo } = todoSlice.actions;
 export default todoSlice.reducer;

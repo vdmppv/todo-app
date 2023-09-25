@@ -1,7 +1,7 @@
 import React, {useState} from 'react';
 import { List, Button } from 'antd';
 import { useDispatch, useSelector } from 'react-redux';
-import { removeTodo, editTodo } from '../slices/todoSlice';
+import { removeTodo, updateTodo } from '../slices/todoSlice';
 import Todo from '../models/Todo';
 import TodoForm from './TodoForm';
 
@@ -24,7 +24,7 @@ const TodoList: React.FC = () => {
   };
 
   const handleSaveEdit = (editedTodo: Todo) => {
-    dispatch(editTodo(editedTodo));
+    dispatch(updateTodo(editedTodo));
     setEditingTodo(null);
   };
 
